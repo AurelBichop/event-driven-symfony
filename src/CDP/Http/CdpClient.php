@@ -12,14 +12,12 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class CdpClient
 {
-
     private const string CDP_API_URL = 'https://some-cdp-api.com';
 
     public function __construct(
         private readonly HttpClientInterface $httpClient,
         #[Autowire('%cdp.api_key%')] private readonly string $apiKey
-    )
-    {
+    ) {
     }
 
     /**
