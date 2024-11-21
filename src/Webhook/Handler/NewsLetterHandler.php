@@ -21,7 +21,7 @@ class NewsLetterHandler implements WebhookHandlerInterface
      */
     public function __construct(
         private readonly NewsletterWebhookFactory $newsletterWebhookFactory,
-        #[AutowireIterator('forwarder.newsletter')] private iterable $forwarder,
+        #[AutowireIterator('forwarder.newsletter')] private iterable $forwarders,
     ) {
     }
 
@@ -34,8 +34,8 @@ class NewsLetterHandler implements WebhookHandlerInterface
     {
         $newsletterWebhook = $this->newsletterWebhookFactory->create($webhook);
 
-        //LOop over tht forwarders
-        foreach ($this->forwarder as $forwarder) {
+        //Loop over tht forwarders
+        foreach ($this->forwarders as $forwarder) {
             // If supported
             if ($forwarder->supports($newsletterWebhook)) {
                 // Forward the data

@@ -6,6 +6,8 @@ namespace App\CDP\Analytics\Model;
 
 interface ModelInterface
 {
+    public const string IDENTIFY_TYPE = 'identify';
+    public const string TRACK_TYPE = 'type';
     /**
      * @return  array<string, mixed>
      */
